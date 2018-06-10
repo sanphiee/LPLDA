@@ -124,7 +124,7 @@ def _local_pairwise_cov(class_mean, neighbor_mean):
         covs.append(np.atleast_2d(_cov(local_pair)))
     return np.average(covs, axis=0)
 
-class LocalPairwiseTrainedLinearDiscriminantAnalysis:
+class LocalPairwiseLinearDiscriminantAnalysis:
                 
     def __init__(self, n_components=None, within_between_ratio=10.0, 
                  nearest_neighbor_ratio=1.2):
@@ -216,7 +216,7 @@ if __name__ == '__main__':
     data = np.random.random((samples, dim))  
     label = np.random.random_integers(0, 2, size=(samples, 1))
     
-    lda = LocalPairwiseTrainedLinearDiscriminantAnalysis(lda_dim)
+    lda = LocalPairwiseLinearDiscriminantAnalysis(lda_dim)
     lda.fit(data, label)
     lda_data = lda.transform(data)
     
