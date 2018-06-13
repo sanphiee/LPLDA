@@ -11,8 +11,8 @@ from sklearn.utils.validation import check_is_fitted
 ##      reviser : Liang He
 ##   descrption : linear discriminant analysis
 ##                revised from sklearn
-##      created : 20170104
-##      revised : 20180602
+##      created : 20180613
+##      revised : 
 ## 
 ##    Liang He, +86-13426228839, heliang@mail.tsinghua.edu.cn 
 ##    Aurora Lab, Department of Electronic Engineering, Tsinghua University
@@ -31,7 +31,7 @@ def _cov(X):
     s : array, shape (n_features, n_features)
         Estimated covariance matrix.
     """
-    s = np.cov(X, rowvar=0)
+    s = np.cov(X, rowvar=0, bias = 1)
     return s
 
 
@@ -119,7 +119,7 @@ class LinearDiscriminantAnalysis:
 
         evals, evecs = linalg.eigh(Sb, Sw)        
         evecs = evecs[:, np.argsort(evals)[::-1]]  # sort eigenvectors
-        evecs /= np.linalg.norm(evecs, axis=0)
+        # evecs /= np.linalg.norm(evecs, axis=0)
         self.scalings_ = np.asarray(evecs)
         
                 

@@ -11,8 +11,8 @@ from sklearn.utils.validation import check_is_fitted
 ##       author : Liang He
 ##   descrption : local pairwise linear discriminant analysis
 ##                revised from sklearn
-##      created : 20170104
-##      revised : 20180602
+##      created : 20180613
+##      revised : 
 ## 
 ##    Liang He, +86-13426228839, heliang@mail.tsinghua.edu.cn 
 ##    Aurora Lab, Department of Electronic Engineering, Tsinghua University
@@ -31,10 +31,18 @@ def _cov(X):
     s : array, shape (n_features, n_features)
         Estimated covariance matrix.
     """
-    s = np.cov(X, rowvar=0)    
+    s = np.cov(X, rowvar=0, bias = 1)    
     return s
 
+def _similarity_function(mean_vec, vecs):
 
+#    dot_kernel = np.array([np.dot(mean_vec, vecs) for i in range(0,len(vecs))])
+#    return dot_kernel
+    mean_vec_norm = mean_vec / np.sqrt(np.sum(mean_vec ** 2))
+    vecs_norm = vecs / np.sqrt(np.sum(vecs ** 2, axis=1))[:, np.newaxis]
+    cosine_kernel = np.array([np.dot(mean_vec_norm, vecs_norm[i]) for i in range(len(vecs_norm))])
+    return cosine_kernel
+	
 def _class_means_and_neighbor_means(X, y, k1, k2):
     """Compute class means and neighor means
     Parameters
@@ -60,24 +68,21 @@ def _class_means_and_neighbor_means(X, y, k1, k2):
         Xg = X[y == group, :]
         Xg_count = Xg.shape[0]
         Xg_mean = Xg.mean(0)
-    
         Xn = X[y != group, :]
-        Xg_similarity = np.array([np.dot(Xg_mean, Xg[i]) for i in range(0,len(Xg))])
+        Xg_similarity = _similarity_function(Xg_mean, Xg)
         Xg_similarity_min = min(Xg_similarity)
-        Xn_similarity = np.array([np.dot(Xg_mean, Xn[i]) for i in range(0,len(Xn))])
+        Xn_similarity = _similarity_function(Xg_mean, Xn)
         Xn_neighbor_count = len(Xn_similarity[Xn_similarity > Xg_similarity_min])
         Xn_neighbor_count = int(max(k1 * Xg_count, k2 * Xn_neighbor_count))
         Xn_neighbor_count = min(Xn_neighbor_count, samples - Xg_count)
         Xn_label = np.argsort(Xn_similarity)
         Xn_label = Xn_label[::-1]
-        Xg_neighbor = np.array([Xn[Xn_label[i]] for i in range(0, Xn_neighbor_count)])
+        Xg_neighbor = np.array([Xn[Xn_label[i]] for i in range(Xn_neighbor_count)])
         Xg_neighbor_mean = Xg_neighbor.mean(0)
         
         means.append(Xg_mean)
         neighbor_means.append(Xg_neighbor_mean)
         
-        # print('w, b :', Xg_count, Xn_neighbor_count)
-    
     return np.array(means), np.array(neighbor_means)
 
 def _class_cov(X, y):
@@ -161,7 +166,7 @@ class LocalPairwiseLinearDiscriminantAnalysis:
         
         evals, evecs = linalg.eigh(Sb, Sw)
         evecs = evecs[:, np.argsort(evals)[::-1]]  # sort eigenvectors
-        evecs /= np.linalg.norm(evecs, axis=0)
+        # evecs /= np.linalg.norm(evecs, axis=0)
         self.scalings_ = np.asarray(evecs)
                 
     def fit(self, X, y):

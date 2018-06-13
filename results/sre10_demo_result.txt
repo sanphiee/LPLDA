@@ -1,0 +1,36 @@
+------ Aurora Lab ------ \
+eer = 6.75 % \
+mindcf_sre08 = 0.2710 \
+mindcf_sre10 = 0.6121 \
+mindcf_sre12 = 0.5274 \
+mindcf_sre14 = 0.4437 \
+mindcf_sre16 = 0.4722 \
+comment : cosine \
+6.7509, 0.2710, 0.6121, 0.5274, 0.4437, 0.4722 \
+------ Aurora Lab ------ \
+eer = 3.67 % \
+mindcf_sre08 = 0.1727 \
+mindcf_sre10 = 0.4417 \
+mindcf_sre12 = 0.3775 \
+mindcf_sre14 = 0.3140 \
+mindcf_sre16 = 0.3348 \
+comment : LDA \
+3.6652, 0.1727, 0.4417, 0.3775, 0.3140, 0.3348 \
+------ Aurora Lab ------ \
+eer = 3.35 % \
+mindcf_sre08 = 0.1330 \
+mindcf_sre10 = 0.3486 \
+mindcf_sre12 = 0.2946 \
+mindcf_sre14 = 0.2411 \
+mindcf_sre16 = 0.2604 \
+comment : LPLDA \
+3.3478, 0.1330, 0.3486, 0.2946, 0.2411, 0.2604
+------ Aurora Lab ------
+eer = 6.75 %
+mindcf_sre08 = 0.2710
+mindcf_sre10 = 0.6121
+mindcf_sre12 = 0.5274
+mindcf_sre14 = 0.4437
+mindcf_sre16 = 0.4722
+comment : cosine
+6.7509, 0.2710, 0.6121, 0.5274, 0.4437, 0.4722
