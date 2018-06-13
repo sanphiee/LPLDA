@@ -22,6 +22,14 @@ b) test ivectors, csv format file:  \
    nist_sre10_c5_coreext_male_test_ivec.csv \
 c) lambda ivectors (for training LDA, LPLDA), csv format file:  \
    sre050608_swb_male_lambda_ivec.csv \
+   Note that, sre050608_swb_male_lambda_ivec.csv is too big for GitHub \
+   I compress and divide it by 7z. \
+   You should use 7z and uncompress them: \
+   sre050608_swb_male_lambda_ivec.7z.001 \
+   sre050608_swb_male_lambda_ivec.7z.002 \
+   sre050608_swb_male_lambda_ivec.7z.003 \
+   sre050608_swb_male_lambda_ivec.7z.004 \ 
+   sre050608_swb_male_lambda_ivec.7z.005
 B. list \
 a) train, ndx format file: since the train ivectors is named by model_id, this file is unnecessary. \
    nist_sre10_train_coreext_male.ndx \
