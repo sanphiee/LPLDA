@@ -28,7 +28,7 @@ c) lambda ivectors (for training LDA, LPLDA), csv format file:  \
    sre050608_swb_male_lambda_ivec.7z.001 \
    sre050608_swb_male_lambda_ivec.7z.002 \
    sre050608_swb_male_lambda_ivec.7z.003 \
-   sre050608_swb_male_lambda_ivec.7z.004 \ 
+   sre050608_swb_male_lambda_ivec.7z.004 \
    sre050608_swb_male_lambda_ivec.7z.005 \
 B. list \
 a) train, ndx format file: since the train ivectors is named by model_id, this file is unnecessary. \
