@@ -24,7 +24,7 @@ c) lambda ivectors (for training LDA, LPLDA), csv format file:  \
    sre050608_swb_male_lambda_ivec.csv \
    Note that, sre050608_swb_male_lambda_ivec.csv is too big for GitHub \
    I compress and divide it by 7z. \
-   You should use 7z and uncompress them: \
+   You can use 7z uncompress them: \
    sre050608_swb_male_lambda_ivec.7z.001 \
    sre050608_swb_male_lambda_ivec.7z.002 \
    sre050608_swb_male_lambda_ivec.7z.003 \
