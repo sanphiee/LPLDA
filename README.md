@@ -3,7 +3,8 @@ Local Pairwise Linear Discriminant Analysis
 
 This is a demo for comparing LDA and LPLDA on NIST SRE2010 c5 coreext-coreext male condition.
 
-The same version to Code Ocean.
+This code has been validated by Code Ocean.
+https://codeocean.com/2018/06/15/lplda-colon-local-pairwise-linear-discriminant-analysis/code
 
 environment : anaconda3, python3, require sklearn.
 
