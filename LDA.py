@@ -119,7 +119,6 @@ class LinearDiscriminantAnalysis:
 
         evals, evecs = linalg.eigh(Sb, Sw)        
         evecs = evecs[:, np.argsort(evals)[::-1]]  # sort eigenvectors
-        # evecs /= np.linalg.norm(evecs, axis=0)
         self.scalings_ = np.asarray(evecs)
         
                 

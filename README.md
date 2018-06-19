@@ -140,5 +140,5 @@ mindcf_sre14 = 0.2387 \
 mindcf_sre16 = 0.2578, mindcf1 = 0.2381, mindcf2 = 0.2775 \
 comment : LPLDA 
 
-He Liang, Tsinghua University
+He Liang, Tsinghua University \
 June 13, 2018
