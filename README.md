@@ -140,5 +140,8 @@ mindcf_sre14 = 0.2387 \
 mindcf_sre16 = 0.2578, mindcf1 = 0.2381, mindcf2 = 0.2775 \
 comment : LPLDA 
 
+L. He, X. Chen, C. Xu, J. Liu and M. T. Johnson, "Local Pairwise Linear Discriminant Analysis for Speaker Verification," in IEEE Signal Processing Letters, vol. 25, no. 10, pp. 1575-1579, Oct. 2018.
+doi: 10.1109/LSP.2018.2869107
+
 He Liang, Tsinghua University \
 June 13, 2018
